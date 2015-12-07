@@ -1,0 +1,26 @@
+{
+    "name": "albaraam/yii2-gcm-apns",
+    "description": "Yii2 component as wrapper of the \"albaraam/php-gcm-apns\" library to handle mobile push notifications.",
+    "keywords": ["yii2", "gcm", "apns", "yii2-gcm-apns", "push"],
+    "minimum-stability": "dev",
+    "type": "yii2-extension",
+    "license": "MIT License",
+    "support": {
+        "issues": "https://github.com/albaraam/yii2-gcm-apns/issues",
+        "source": "https://github.com/albaraam/yii2-gcm-apns"
+    },
+    "authors": [
+        {
+            "name": "Albaraa Mishlawi",
+            "email": "albaraa_m@live.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "yiisoft/yii2": ">=2.0.4",
+        "albaraam/php-gcm-apns": "~1.0.0"
+    },
+    "autoload": {
+        "psr-4": { "albaraam\\yii2_gcm_apns\\": "src/" }
+    }
+}
