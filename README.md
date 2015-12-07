@@ -41,7 +41,6 @@ Add & configure the component in your config file:
 Access it anywhere in your application like the following:
 
 ```php
-
 // Message creation through the message builder.
 $message = Yii::$app()->gcmApns->messageBuilder("Title","Body");
 

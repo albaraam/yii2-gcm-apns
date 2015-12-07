@@ -34,7 +34,7 @@ class GcmApns extends Component
 
     public $pem_file;
 
-    public $environment;
+    public $environment = self::ENVIRONMENT_SANDBOX;
 
     public $passphrase;
 
@@ -53,22 +53,6 @@ class GcmApns extends Component
     public $socket_select_timeout;
 
     public $logger;
-
-
-    public function init()
-    {
-        foreach (['google_api_key', 'pem_file', 'environment'] as $attribute) {
-            if ($this->$attribute === null) {
-                throw new InvalidConfigException(strtr('"{class}::{attribute}" cannot be empty.', [
-                    '{class}' => static::className(),
-                    '{attribute}' => '$' . $attribute
-                ]));
-            }
-        }
-
-        parent::init();
-    }
-
 
     /**
      * @param $title
@@ -105,7 +89,17 @@ class GcmApns extends Component
 
     public function getClient(){
         if($this->_client == null){
-            $this->_client = new Client($this->google_api_key, $this->pem_file, $this->environment);
+            if(empty($this->google_api_key) || empty($this->pem_file)){
+                throw new InvalidConfigException("You have to provide credentials
+                    for at least one platform GCM or Apns (google_api_key or pem_file) ");
+            }
+            $this->_client = new Client(
+                $this->google_api_key,
+                $this->pem_file,
+                ($this->environment == self::ENVIRONMENT_SANDBOX)
+                    ? Client::IOS_ENVIRONMENT_SANDBOX
+                    : Client::IOS_ENVIRONMENT_PRODUCTION
+            );
             if(!empty($this->passphrase)){
                 $this->_client->setIosPassphrase($this->passphrase);
             }
