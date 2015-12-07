@@ -24,13 +24,13 @@ class GcmApns extends Component
 
     private $_client;
 
-    // Android Configs
-    // ================
+    // Android Configurations
+    // ======================
 
     public $google_api_key;
 
-    // IOS Configs
-    // ============
+    // IOS Configurations
+    // ==================
 
     public $pem_file;
 
@@ -87,6 +87,10 @@ class GcmApns extends Component
         return $this->getClient()->sendIOS($message);
     }
 
+    /**
+     * @return Client|mixed
+     * @throws InvalidConfigException
+     */
     public function getClient(){
         if($this->_client == null){
             if(empty($this->google_api_key) || empty($this->pem_file)){
