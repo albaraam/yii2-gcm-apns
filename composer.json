@@ -18,7 +18,7 @@
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.4",
-        "albaraam/php-gcm-apns": "~1.0.0"
+        "albaraam/php-gcm-apns": "~1.0.0@dev"
     },
     "autoload": {
         "psr-4": { "albaraam\\yii2_gcm_apns\\": "src/" }
