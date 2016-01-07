@@ -65,6 +65,6 @@ $message->ios
 	->setBadge(3);
 
 // Send message
-Yii::$app()->gcmApns->send($message);
+Yii::$app->gcmApns->send($message);
 
 ```
