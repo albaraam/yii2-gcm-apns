@@ -93,7 +93,7 @@ class GcmApns extends Component
      */
     public function getClient(){
         if($this->_client == null){
-            if($this->google_api_key == "" || $this->pem_file == ""){
+            if(empty($this->google_api_key) && empty($this->pem_file)){
                 throw new InvalidConfigException("You have to provide credentials
                     for at least one platform GCM or Apns (google_api_key or pem_file) ");
             }
