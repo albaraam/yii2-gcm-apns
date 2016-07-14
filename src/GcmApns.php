@@ -130,6 +130,8 @@ class GcmApns extends Component
             }
             if(!empty($this->logger)){
                 $this->_client->setIosLogger($this->logger);
+            }else{
+                $this->_client->setIosLogger(new Yii_ApnsPHP_Log());
             }
         }
         return $this->_client;
