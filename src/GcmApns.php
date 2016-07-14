@@ -11,6 +11,7 @@ namespace albaraam\yii2_gcm_apns;
 
 use albaraam\gcmapns\Client;
 use albaraam\gcmapns\Message;
+use albaraam\yii2_gcm_apns\Yii_ApnsPHP_Log;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
 
